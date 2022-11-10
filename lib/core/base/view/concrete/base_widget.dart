@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
-class BaseView<T extends Store> extends StatefulWidget {
+class CoreBaseView<T extends Store> extends StatefulWidget {
   final Widget Function(BuildContext context, T value) onPageBuilder;
   final T viewModel;
   final Function(T model) onModelReady;
   final VoidCallback? onDispose;
   final VoidCallback? ondidUpdateWidget;
 
-  const BaseView(
+  const CoreBaseView(
       {Key? key,
       required this.viewModel,
       required this.onPageBuilder,
@@ -18,12 +18,12 @@ class BaseView<T extends Store> extends StatefulWidget {
       : super(key: key);
 
   @override
-  _BaseViewState<T> createState() => _BaseViewState<T>();
+  _CoreBaseViewState<T> createState() => _CoreBaseViewState<T>();
 }
 
-class _BaseViewState<T extends Store> extends State<BaseView<T>> {
+class _CoreBaseViewState<T extends Store> extends State<CoreBaseView<T>> {
   @override
-  void didUpdateWidget(covariant BaseView<T> oldWidget) {
+  void didUpdateWidget(covariant CoreBaseView<T> oldWidget) {
     if (widget.ondidUpdateWidget != null) {
       widget.ondidUpdateWidget!.call();
     }

@@ -1,1 +1,0 @@
-enum LogManagerTypesEnum { LOGGER }
