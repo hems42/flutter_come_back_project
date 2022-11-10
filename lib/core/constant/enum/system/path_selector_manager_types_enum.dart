@@ -1,0 +1,1 @@
+enum DirectoryPathSelectorManagerTypesEnum { PIGEON }
