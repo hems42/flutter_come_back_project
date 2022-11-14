@@ -26,4 +26,5 @@ abstract class ICoreNetworService {
           dynamic data,
           Map<String, Object>? queryParameters,
           void Function(int, int)? onReceiveProgress});
+
 }

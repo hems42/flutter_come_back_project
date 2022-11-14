@@ -17,6 +17,14 @@ mixin ICoreNetworkManager implements ICoreNetworService {
   //
   //
   //
+  //  Genel Yapı
+  // log konusu
+  // cache konusu ve senaryoları
+  //hata yönetimi ve senaryoları
+  // bağlantı durumu ve yönetimi ve de senareyoları
+  // dosya indirme ve bindirme işlemeleri
+  // dosya aktarma senaryoları
+  // istekleri sıralanması senaryoları
 
   // util serviceses...
   // var cacheService = CoreServiceWorkBench.cacheService;
@@ -27,7 +35,7 @@ mixin ICoreNetworkManager implements ICoreNetworService {
   final int _receivingTimeOut = 5;
 
   // base url - paths
-  final String _baseUrl = CoreNetworkConstants.API_BASE_MOCK_URL;
+  late final String _baseUrl;
 
   // local directory paths
   final String _baseLocalDirectory = "";
@@ -35,7 +43,9 @@ mixin ICoreNetworkManager implements ICoreNetworService {
   // acces token refesh retry time number
   int updateAccessTokenRefreshRetryTime = 3;
 
-  get baseUrl => _baseUrl;
+  String get baseUrl => _baseUrl;
+
+  set baseUrl(String baseUrl) => _baseUrl = baseUrl;
 
   get refreshTokenUrl => CoreNetworkConstants.REFRESH_TOKEN_URL;
 

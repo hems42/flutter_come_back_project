@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_come_back_project/product/init/network/concrete/dio/product_network_manager_dio.dart';
+
+import 'core/constant/enum/network/core_http_request_types_enum.dart';
+import 'deneme/model/signup_response_model.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,16 +53,19 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+ late ProductNetworkManagerOfDio network;
+          @override
+  void initState() {
+     network = ProductNetworkManagerOfDio.instance!;
+    super.initState();
+  }
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+  Future<void> _incrementCounter() async {
+       await network
+      .send<SignupResponseModel, SignupResponseModel>(network.baseUrl+network.signUpUrl,
+          type: CoreHttpRequestTypesEnum.POST,
+          parseModel: SignupResponseModel())
+      .then((value) => print((value.data as SignupResponseModel).toJson()));   
   }
 
   @override
