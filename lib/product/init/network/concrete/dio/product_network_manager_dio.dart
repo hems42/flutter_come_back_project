@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:dio/dio.dart';
 import '../../../../../core/base/model/abstract/ife_core_base_response_model.dart';
 import '../../../../../core/base/model/abstract/ife_core_base_network_model.dart';
@@ -174,6 +173,7 @@ class ProductNetworkManagerOfDio extends IProductNetworkManager {
         data: requestOptions.data,
         queryParameters: requestOptions.queryParameters,
         options: options);
+        
   }
 
   updateAccessToken() {}

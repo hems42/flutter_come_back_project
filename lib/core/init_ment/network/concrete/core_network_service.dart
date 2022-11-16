@@ -1,11 +1,4 @@
 // ignore_for_file: unused_field
-import '../../../base/model/abstract/ife_core_base_response_model.dart';
-import '../../../base/model/abstract/ife_core_base_network_model.dart';
-import '../../../constant/enum/network/core_http_request_types_enum.dart';
-import '../../../constant/enum/network/core_network_manager_types_enum.dart';
-import '../abstract/ife_core_network_service.dart';
-import '../abstract/ife_core_network_manager.dart';
-import 'dio/core_network_manager_dio.dart';
 
 /*
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../constant/static/network/core_network_statics.dart';
 import '../../../base/model/abstract/ife_core_base_network_model.dart';
 import 'ife_core_network_service.dart';
 
@@ -27,33 +26,44 @@ mixin ICoreNetworkManager implements ICoreNetworService {
   // istekleri sıralanması senaryoları
 
   // util serviceses...
-  // var cacheService = CoreServiceWorkBench.cacheService;
-  //var logService = CoreServiceWorkBench.logService;
+   var cacheService;
+   var logService;
 
   // rule - connection properties...
-  final int _connectionTimeOut = 300;
-  final int _receivingTimeOut = 5;
+  late final int _connectionTimeOut;
+  late final int _receivingTimeOut;
 
   // base url - paths
   late final String _baseUrl;
 
   // local directory paths
-  final String _baseLocalDirectory = "";
+  late final String _baseLocalDirectory;
 
   // acces token refesh retry time number
-  int updateAccessTokenRefreshRetryTime = 3;
+  late final int _updateAccessTokenRefreshRetryTime;
+
+  // other url paths
+  late final _refreshTokenUrl;
 
   String get baseUrl => _baseUrl;
-
   set baseUrl(String baseUrl) => _baseUrl = baseUrl;
 
-  get refreshTokenUrl => CoreNetworkConstants.REFRESH_TOKEN_URL;
+  String get refreshTokenUrl => _refreshTokenUrl;
+  set refreshTokenUrl(String refreshTokenUrl) =>
+      _refreshTokenUrl = refreshTokenUrl;
 
-  get connectionTimeOut => _connectionTimeOut;
+  int get connectionTimeOut => _connectionTimeOut;
+  set connectionTimeOut(int connectionTimeOut) =>
+      _connectionTimeOut = connectionTimeOut;
 
-  get receivingTimeOut => _receivingTimeOut;
+  int get receivingTimeOut => _receivingTimeOut;
+  set receivingTimeOut(int receivingTimeOut) =>
+      _receivingTimeOut = receivingTimeOut;
 
-  get baseLocalDirectory => _baseLocalDirectory;
+  String get baseLocalDirectory => _baseLocalDirectory;
+  set baseLocalDirectory(String baseLocalDirectory) =>
+      _baseLocalDirectory = baseLocalDirectory;
+
 
   // needable interrup metods...
   VoidCallback? onRequestV;
@@ -66,6 +76,7 @@ mixin ICoreNetworkManager implements ICoreNetworService {
   Function? onConnectionLostF;
   VoidCallback? onReConnectedV;
   Function? onReConnectedF;
+
   // util methods...
   R? responseParser<R, T>(ICoreBaseNetworkModel model, dynamic data) {
     if (data is List) {

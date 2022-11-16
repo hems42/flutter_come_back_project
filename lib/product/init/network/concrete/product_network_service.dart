@@ -1,3 +1,5 @@
+import 'package:flutter_come_back_project/product/init/network/concrete/dio/product_network_manager_dio.dart';
+
 import '../../../../core/constant/enum/network/core_http_request_types_enum.dart';
 import '../../../../core/base/model/abstract/ife_core_base_response_model.dart';
 import '../../../../core/base/model/abstract/ife_core_base_network_model.dart';
@@ -26,7 +28,7 @@ static ProductNetworkService? _instance;
   IProductNetworkManager? _selectManager(ProductNetworkManagerTypesEnum types) {
     switch (types) {
       case ProductNetworkManagerTypesEnum.DIO:
-        return null;
+        return ProductNetworkManagerOfDio.instance;
 
       default:
         return null;
