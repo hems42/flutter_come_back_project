@@ -99,8 +99,8 @@ class ProductNetworkManagerOfDio extends IProductNetworkManager {
       data,
       Map<String, Object>? queryParameters,
       void Function(int p1, int p2)? onReceiveProgress}) {
-    return _getResponseFromRequest(path,
-        data: data, type: type, parseModel: parseModel);
+    return _getResponseFromRequest(path, 
+    data: data, type: type, parseModel: parseModel);
   }
 
   Future<ICoreBaseResponseModel<R>>

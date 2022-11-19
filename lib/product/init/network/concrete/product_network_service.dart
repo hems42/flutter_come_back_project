@@ -1,5 +1,4 @@
-import 'package:flutter_come_back_project/product/init/network/concrete/dio/product_network_manager_dio.dart';
-
+import 'dio/product_network_manager_dio.dart';
 import '../../../../core/constant/enum/network/core_http_request_types_enum.dart';
 import '../../../../core/base/model/abstract/ife_core_base_response_model.dart';
 import '../../../../core/base/model/abstract/ife_core_base_network_model.dart';

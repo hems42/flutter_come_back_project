@@ -1,3 +1,5 @@
+import 'package:flutter_come_back_project/core/base/model/abstract/ife_core_base_log_model.dart';
+
 import '../../../constant/enum/log/core_log_levels_enum.dart';
 import '../../../constant/enum/log/core_log_manager_types_enum.dart';
 import '../../../constant/enum/log/core_to_log_types_enum.dart';
@@ -30,5 +32,11 @@ class LogService implements ICoreLogService {
   @override
   log(CoreLogLevelEnum logDegree, String logMessage, {CoreToLogTypesEnum? toLogTypes}) {
     _manager.log(logDegree, logMessage, toLogTypes: toLogTypes);
+  }
+
+  @override
+  logWithModel(CoreLogLevelEnum logLevel, ICoreBaseLogModel logModel, {CoreToLogTypesEnum? toLogTypes}) {
+    // TODO: implement logWithModel
+    throw UnimplementedError();
   }
 }

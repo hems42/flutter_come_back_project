@@ -15,13 +15,13 @@ abstract class ICoreBaseExceptionModel {
       required String errorDetailCode,
       required String errorDescription,
       required String baseStatusCode}) {
-    this._exceptionEventType = exceptionEventType;
-    this._errorTopicCode = exceptionEventType.exceptionCode;
-    this._errorMessage = exceptionEventType.exceptionMessage;
-    this._errorDescription = errorDescription;
-    this._baseErrorCode = baseErrorCode;
-    this._errorDetailCode = errorDetailCode;
-    this._baseStatusCode = baseStatusCode;
+    _exceptionEventType = exceptionEventType;
+    _errorTopicCode = exceptionEventType.exceptionCode;
+    _errorMessage = exceptionEventType.exceptionMessage;
+    _errorDescription = errorDescription;
+    _baseErrorCode = baseErrorCode;
+    _errorDetailCode = errorDetailCode;
+    _baseStatusCode = baseStatusCode;
   }
 
   String get timeStamp => _timeStamp;
