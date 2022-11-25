@@ -11,7 +11,7 @@ class ProductLogService implements IProductLogService {
   }
 
   @override
-  logWithModel(CoreLogLevelEnum logLevel, ICoreBaseLogModel logModel, {CoreToLogTypesEnum? toLogTypes}) {
+  logWithModel(CoreLogLevelEnum logLevel, ICoreBaseLogModel  logModel, {CoreToLogTypesEnum? toLogTypes}) {
     // TODO: implement logWithModel
     throw UnimplementedError();
   }

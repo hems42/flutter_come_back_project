@@ -58,20 +58,20 @@ class CoreExceptionErrorCodeCostants {
 
   //-Error_MainGroupCodeList :
 
-  static final String _UN = "10";
-  static final String _ALREADY = "20";
-  static final String _NOT = "30";
-  static final String _NON = "40";
-  static final String _FORBIDDEN = "50";
+  static const String _UN = "10";
+  static const String _ALREADY = "20";
+  static const String _NOT = "30";
+  static const String _NON = "40";
+  static const String _FORBIDDEN = "50";
 
   //-Error_SubGroupCodeList :
 
-  static final String _EXIST = "10";
-  static final String _VALID = "20";
-  static final String _FOUND = "30";
-  static final String _SUCCESS = "40";
-  static final String _ACCEPT = "50";
-  static final String _AUTHORIZE = "60";
+  static const String _EXIST = "10";
+  static const String _VALID = "20";
+  static const String _FOUND = "30";
+  static const String _SUCCESS = "40";
+  static const String _ACCEPT = "50";
+  static const String _AUTHORIZE = "60";
 
   //-Error_EntityCodeList :
 
