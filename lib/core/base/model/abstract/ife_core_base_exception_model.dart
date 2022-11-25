@@ -22,6 +22,7 @@ abstract class ICoreBaseExceptionModel {
     _baseErrorCode = baseErrorCode;
     _errorDetailCode = errorDetailCode;
     _baseStatusCode = baseStatusCode;
+    _timeStamp = DateTime.now().toString();
   }
 
   String get timeStamp => _timeStamp;
