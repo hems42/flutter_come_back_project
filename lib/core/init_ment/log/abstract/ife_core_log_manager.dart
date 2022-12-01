@@ -7,16 +7,16 @@ import 'package:path_provider/path_provider.dart';
 mixin ICoreLogManager implements ICoreLogService {
 
   //--   
- late final CoreLogLevelEnum _selectedLogImportanceLevel;
- late final CoreToLogTypesEnum _selectedToLogOutput;
+ late final CoreLogLevelEnum? _selectedLogImportanceLevel;
+ late final CoreToLogTypesEnum? _selectedToLogOutput;
 
 //--
-CoreLogLevelEnum get selectedLogImportanceLevel => _selectedLogImportanceLevel;
-set selectedLogImportanceLevel(CoreLogLevelEnum selectedLogImportanceLevel) =>
+CoreLogLevelEnum? get selectedLogImportanceLevel => _selectedLogImportanceLevel;
+set selectedLogImportanceLevel(CoreLogLevelEnum? selectedLogImportanceLevel) =>
       _selectedLogImportanceLevel = selectedLogImportanceLevel;
 
-CoreToLogTypesEnum get selectedToLogOutput => _selectedToLogOutput;
-set selectedToLogOutput(CoreToLogTypesEnum selectedToLogOutput) =>
+CoreToLogTypesEnum? get selectedToLogOutput => _selectedToLogOutput;
+set selectedToLogOutput(CoreToLogTypesEnum? selectedToLogOutput) =>
       _selectedToLogOutput = selectedToLogOutput;      
 
 

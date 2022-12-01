@@ -13,48 +13,113 @@ class ProductLogManagerOfLogger extends IProductLogManager {
   }
 
   ProductLogManagerOfLogger._init() {
-    _logger = Logger(
-     
-    );
-    
     configureManager();
+    _logger = Logger(
+      printer: CustomLogPrinter(),
+        level: selectedLogImportanceLevel != null
+            ? _convertLevel(selectedLogImportanceLevel!)
+            : null);
   }
 
-  
   @override
   log(
       {required String logMessage,
       CoreToLogTypesEnum? toLogTypes,
       CoreLogLevelEnum? logLevel}) {
-    switch (logLevel) {
-      case CoreLogLevelEnum.INFO: 
-        _logger.i(logMessage);
-        break;
-
-      case CoreLogLevelEnum.ERROR:
-        _logger.e(logMessage);
-        break;
-
-      case CoreLogLevelEnum.WARN:
-        _logger.w(logMessage);
-        break;
-      case CoreLogLevelEnum.DEBUG:
+    if (logLevel != null) {
+      _log(_convertLevel(logLevel), logMessage);
+    } else {
+      if (selectedLogImportanceLevel != null) {
+        _log(_convertLevel(selectedLogImportanceLevel!), logMessage);
+      } else {
         _logger.d(logMessage);
-        break;
-      case CoreLogLevelEnum.TERRIBLE_FAILURE:
-        _logger.wtf(logMessage);
-        break;
-      case CoreLogLevelEnum.VERBOSE:
-        _logger.v(logMessage);
-        break;
-      default:
+      }
     }
   }
 
   @override
   logWithModel(
       {required ICoreBaseLogModel logModel, CoreToLogTypesEnum? toLogTypes}) {
-    // TODO: implement logWithModel
-    throw UnimplementedError();
+    _logger.log(_convertLevel(logModel.logImportanceLevel), logModel.logMessage,
+        logModel);
+  }
+
+  //------------------
+
+  Level _convertLevel(CoreLogLevelEnum selectedLevel) {
+    switch (selectedLevel) {
+      case CoreLogLevelEnum.VERBOSE:
+        return Level.verbose;
+
+      case CoreLogLevelEnum.WARN:
+        return Level.warning;
+
+      case CoreLogLevelEnum.INFO:
+        return Level.info;
+
+      case CoreLogLevelEnum.ERROR:
+        return Level.error;
+
+      case CoreLogLevelEnum.TERRIBLE_FAILURE:
+        return Level.wtf;
+
+      case CoreLogLevelEnum.DEBUG:
+        return Level.debug;
+      default:
+        return Level.verbose;
+    }
+  }
+
+  LogOutput _convertOutput(CoreToLogTypesEnum selectedOutput) {
+    switch (selectedOutput) {
+      case CoreToLogTypesEnum.CACHE:
+        return ConsoleOutput();
+
+      case CoreToLogTypesEnum.REMOTE:
+        return ConsoleOutput();
+
+      case CoreToLogTypesEnum.FILE:
+        return ConsoleOutput();
+
+      default:
+        return ConsoleOutput();
+    }
+  }
+
+  _log(Level level, String message) {
+    switch (level) {
+      case Level.debug:
+        _logger.d(message);
+        break;
+
+      case Level.error:
+        _logger.e(message);
+        break;
+
+      case Level.info:
+        _logger.i(message);
+        break;
+
+      case Level.verbose:
+        _logger.v(message);
+        break;
+
+      case Level.warning:
+        _logger.w(message);
+        break;
+      case Level.wtf:
+        _logger.wtf(message);
+        break;
+
+      default:
+    }
+  }
+}
+
+class CustomLogPrinter extends LogPrinter {
+  @override
+  List<String> log(LogEvent event) {
+    
+    return [event.message];
   }
 }

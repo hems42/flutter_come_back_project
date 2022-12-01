@@ -1,5 +1,5 @@
-import 'package:flutter_come_back_project/product/configurations/product_global_service_configurations.dart';
-
+import '../../../configurations/product_global_service_configurations.dart';
+import 'logger/product_log_manager_logger.dart';
 import '../../../../core/constant/enum/log/core_to_log_types_enum.dart';
 import '../../../../core/constant/enum/log/core_log_levels_enum.dart';
 import '../../../../core/base/model/abstract/ife_core_base_log_model.dart';
@@ -17,13 +17,14 @@ class ProductLogService implements IProductLogService {
   }
 
   ProductLogService._init() {
-    _manager = _selectManager(ProductGlobalServiceConfigurations.selectedProductLogManagerTypesEnum)!;
+    _manager = _selectManager(
+        ProductGlobalServiceConfigurations.selectedProductLogManagerTypesEnum)!;
   }
 
   IProductLogManager? _selectManager(ProductLogManagerTypesEnum types) {
     switch (types) {
       case ProductLogManagerTypesEnum.LOGGER:
-        return null;
+        return ProductLogManagerOfLogger.instance;
       default:
         return null;
     }
@@ -36,14 +37,13 @@ class ProductLogService implements IProductLogService {
       {required String logMessage,
       CoreToLogTypesEnum? toLogTypes,
       CoreLogLevelEnum? logLevel}) {
-    // TODO: implement log
-    throw UnimplementedError();
+    _manager.log(
+        logMessage: logMessage, logLevel: logLevel, toLogTypes: toLogTypes);
   }
 
   @override
   logWithModel(
       {required ICoreBaseLogModel logModel, CoreToLogTypesEnum? toLogTypes}) {
-    // TODO: implement logWithModel
-    throw UnimplementedError();
+    _manager.logWithModel(logModel: logModel, toLogTypes: toLogTypes);
   }
 }
