@@ -1,6 +1,5 @@
 import '../../../configurations/product_global_service_configurations.dart';
 import 'logger/product_log_manager_logger.dart';
-import '../../../../core/constant/enum/log/core_to_log_types_enum.dart';
 import '../../../../core/constant/enum/log/core_log_levels_enum.dart';
 import '../../../../core/base/model/abstract/ife_core_base_log_model.dart';
 import '../../../constant/enum/log/product_log_manager_types_enum.dart';
@@ -35,15 +34,11 @@ class ProductLogService implements IProductLogService {
   @override
   log(
       {required String logMessage,
-      CoreToLogTypesEnum? toLogTypes,
-      CoreLogLevelEnum? logLevel}) {
-    _manager.log(
-        logMessage: logMessage, logLevel: logLevel, toLogTypes: toLogTypes);
-  }
+     required CoreLogLevelEnum logLevel}) 
+     {_manager.log(logMessage: logMessage, logLevel: logLevel);}
 
   @override
-  logWithModel(
-      {required ICoreBaseLogModel logModel, CoreToLogTypesEnum? toLogTypes}) {
-    _manager.logWithModel(logModel: logModel, toLogTypes: toLogTypes);
+  logWithModel({required ICoreBaseLogModel logModel}) {
+    _manager.logWithModel(logModel: logModel);
   }
 }

@@ -11,6 +11,6 @@ class ProductGlobalServiceConfigurations {
   // -- log
   static ProductLogManagerTypesEnum selectedProductLogManagerTypesEnum =
       ProductLogManagerTypesEnum.LOGGER;
-  static CoreLogLevelEnum? selectedLogImportanceLevel;
+  static CoreLogLevelEnum? selectedLogImportanceLevel = CoreLogLevelEnum.VERBOSE;
   static CoreToLogTypesEnum? selectedToLogOutput ;
 }

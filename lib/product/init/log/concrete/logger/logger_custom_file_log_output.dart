@@ -2,10 +2,10 @@
 
 import 'package:logger/logger.dart';
 
-class FileLogOutput extends LogOutput {
+class LoggerCustomFileLogOutput extends LogOutput {
   Function _fileOutputFunction;
 
-  FileLogOutput(this._fileOutputFunction);
+  LoggerCustomFileLogOutput(this._fileOutputFunction);
 
   @override
   void output(OutputEvent event) {
