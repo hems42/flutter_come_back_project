@@ -32,14 +32,14 @@ void main() {
   });
 
   test("log deneme", () {
-    logger.log(logMessage: "deneme log için yazıldı",logLevel: CoreLogLevelEnum.ERROR);
+    logger.log(logMessage: "deneme log için yazıldı",logLevel: CoreLogLevelEnum.VERBOSE);
 
-    logger.logWithModel(
+   /* logger.logWithModel(
         logModel: DenemeLogModel(
           logCode: "log kodu",
           isThrownException: true,
             logMessage: "logMessage",
-            logImportanceLevel: CoreLogLevelEnum.TERRIBLE_FAILURE));
+            logImportanceLevel: CoreLogLevelEnum.TERRIBLE_FAILURE));*/
   });
 
   test("log deneme 2", () {
