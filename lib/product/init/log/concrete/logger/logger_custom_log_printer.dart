@@ -8,7 +8,7 @@ class LoggerCustomLogPrinter extends LogPrinter {
     if (event.error != null) {
       ICoreBaseLogModel? logModel = event.error as ICoreBaseLogModel;
 
-      // ignore: unrelated_type_equality_checks
+     
       var a = "time :- ${logModel.timeStamp}," +
           " log level :- ${logModel.logImportanceLevel.name}," +
           " log message :- ${logModel.logMessage}," +
