@@ -32,14 +32,20 @@ void main() {
   });
 
   test("log deneme", () {
-    logger.log(logMessage: "deneme log için yazıldı",logLevel: CoreLogLevelEnum.VERBOSE);
+     ICoreBaseExceptionModel modelException = ExceptionModelOfNotFound(
+      CoreExceptionEventTypes.NOT_VALID_ACCESS_TOKEN,
+    
+      errorDescription: 'hata açıklama',
+     errorDetailCode: "41541524");
+  //  logger.log(logMessage: "deneme log için yazıldı",logLevel: CoreLogLevelEnum.VERBOSE);
 
-   /* logger.logWithModel(
+    logger.logWithModel(
         logModel: DenemeLogModel(
           logCode: "log kodu",
           isThrownException: true,
             logMessage: "logMessage",
-            logImportanceLevel: CoreLogLevelEnum.TERRIBLE_FAILURE));*/
+            exceptionModel: modelException,
+            logImportanceLevel: CoreLogLevelEnum.TERRIBLE_FAILURE));
   });
 
   test("log deneme 2", () {
@@ -48,13 +54,15 @@ void main() {
 }
 
 class DenemeLogModel extends ICoreBaseLogModel {
-  ICoreBaseExceptionModel modelException = ExceptionModelOfNotFound(CoreExceptionEventTypes.NOT_VALID_ACCESS_TOKEN,
-      errorDescription: 'hata açıklama',
-     errorDetailCode: "hata kodu");
+  
   DenemeLogModel({
+    
     required super.logMessage,
     required super.logImportanceLevel,
-    super.logCode="45645645456",
-    super.isThrownException=true
+    super.logCode,
+    super.isThrownException=true,
+    super.exceptionModel
+   
+  
   });
 }

@@ -13,7 +13,8 @@ class LoggerCustomLogPrinter extends LogPrinter {
           " log level :- ${logModel.logImportanceLevel.name}," +
           " log message :- ${logModel.logMessage}," +
           " log code :- ${logModel.logCode ?? "--"}," +
-          "${logModel.isThrownException == true ? " error code :- ${logModel.exceptionModel?.errorCode}" : ""}";
+          "${logModel.isThrownException == true ? " error code :- ${logModel.exceptionModel?.errorCode}" : ""}" +
+          "${logModel.isThrownException == true ? " error description :- ${logModel.exceptionModel?.errorDescription}" : ""}";
 
       /*logMessage.add("time : ${logModel.timeStamp}");
       logMessage.add("log level : ${logModel.logImportanceLevel.name}");
