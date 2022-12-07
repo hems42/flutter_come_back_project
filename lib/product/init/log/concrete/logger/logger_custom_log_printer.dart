@@ -16,22 +16,11 @@ class LoggerCustomLogPrinter extends LogPrinter {
           "${logModel.isThrownException == true ? " error code :- ${logModel.exceptionModel?.errorCode}" : ""}" +
           "${logModel.isThrownException == true ? " error description :- ${logModel.exceptionModel?.errorDescription}" : ""}";
 
-      /*logMessage.add("time : ${logModel.timeStamp}");
-      logMessage.add("log level : ${logModel.logImportanceLevel.name}");
-      logMessage.add("log message : ${logModel.logMessage}");
-      logMessage.add("log code : ${logModel.logCode ?? "--"}");
-      logMessage.add(logModel.isThrownException == true
-          ? "error code : ${logModel.exceptionModel?.errorCode}"
-          : "");*/
-
       logMessage.add(a);
     } else {
       var a =
           "time :- ${DateTime.now().toString()}, log level :- ${event.level.name}, log message :- ${event.message}";
 
-      /* logMessage.add("time : ${DateTime.now().toString()}");
-      logMessage.add("log level : ${event.level.name}");
-      logMessage.add("log message : ${event.message}");*/
       logMessage.add(a);
     }
 
